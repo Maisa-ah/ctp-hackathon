@@ -3,6 +3,7 @@ from django.db import models
 
 
 class Class(models.Model):
+    school = models.ForeignKey(School)
     class_code = models.CharField(primary_key=True, max_length=8)
     class_name = models.CharField(max_length=50)
     # class_users = models.ManyToManyField(ClassUser)
