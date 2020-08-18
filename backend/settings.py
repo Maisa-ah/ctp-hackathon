@@ -40,11 +40,15 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'Users',
     'ServicesMajorsApp',
+    'rest_framework',
+    'rest_framework.authtoken',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     # providers for django-allauth will go here
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
