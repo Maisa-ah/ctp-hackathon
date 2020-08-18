@@ -39,10 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'Users',
+    'ServicesMajorsApp',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    #providers for django-allauth will go here
+    # providers for django-allauth will go here
 ]
 
 MIDDLEWARE = [
