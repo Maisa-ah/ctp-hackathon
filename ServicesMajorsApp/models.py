@@ -13,10 +13,10 @@ class Class(models.Model):
 
 class Major(models.Model):
     major_code = models.CharField(primary_key=True, max_length=50)
-    full_title = models.CharField(max_length=50)
+    major_title = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.full_title
+        return self.major_title
 
 
 class Service(models.Model):
