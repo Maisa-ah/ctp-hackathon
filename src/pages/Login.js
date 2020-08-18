@@ -1,7 +1,7 @@
 import React from 'react';
 import Field from '../components/Fields';
 
-function LoginPage(props) {
+function LoginPage() {
   return (
     <div>
       <Field title="Email" name="Your email"/>
