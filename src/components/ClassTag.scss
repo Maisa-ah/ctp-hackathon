@@ -1,0 +1,12 @@
+@import '../themes.scss';
+.tag-container{
+  width: clamp(50%, 50%, 90%);
+  .class-container{
+    background: $medGrey;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    width: clamp(50%, 50%, 90%);
+    text-align: center;
+    font-size: 4vw;
+  }
+}
