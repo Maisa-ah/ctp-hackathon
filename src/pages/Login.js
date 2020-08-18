@@ -7,6 +7,7 @@ function LoginPage(props) {
       <Field title="Email" name="Your email"/>
       <Field title="First Name" name="First Name"/>
       <Field title="Last Name" name="Last Name"/>
+      <Field title="Interest" name="Interest"/>
     </div>
   );
 }
