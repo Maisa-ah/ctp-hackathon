@@ -3,7 +3,7 @@ import './Fields.scss';
 
 const Field = (props) =>{
   return(
-    <div>
+    <div className="margin">
       {props.title}
       <input className="border" value={props.name}>
       </input>
