@@ -8,6 +8,7 @@ router = DefaultRouter()
 router.register('users', UserViewSet, basename='user')
 
 urlpatterns = [
-    path('', include('allauth.urls')),
+    path('', include('rest_auth.urls')),
     path('', include(router.urls)),
+    path('registration/', include('rest_auth.registration.urls')),
 ]

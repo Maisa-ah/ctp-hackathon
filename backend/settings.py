@@ -42,11 +42,32 @@ INSTALLED_APPS = [
     'ServicesMajorsApp',
     'rest_framework',
     'rest_framework.authtoken',
+    'rest_auth',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     # providers for django-allauth will go here
 ]
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+               'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES':(
+                'rest_framework.permissions.IsAuthenticated',
+    ),
+}
+
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'Users.serializers.UserSerializer',
+}
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 
 SITE_ID = 1
 
