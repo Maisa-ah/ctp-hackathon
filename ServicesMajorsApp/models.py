@@ -2,16 +2,6 @@ from django.db import models
 # import models from user to reference here: from user import models
 
 
-class Class(models.Model):
-    school = models.ForeignKey(School)
-    class_code = models.CharField(primary_key=True, max_length=8)
-    class_name = models.CharField(max_length=50)
-    # class_users = models.ManyToManyField(ClassUser)
-
-    def __str__(self):
-        return self.class_name
-
-
 class Major(models.Model):
     major_code = models.CharField(primary_key=True, max_length=50)
     major_title = models.CharField(max_length=50)
@@ -33,3 +23,14 @@ class School(models.Model):
 
     def __str__(self):
         return self.school_name
+
+
+class Class(models.Model):
+    school = models.ForeignKey(
+        School, related_name="school", default="CUNY", on_delete=models.CASCADE)
+    class_code = models.CharField(primary_key=True, max_length=8)
+    class_name = models.CharField(max_length=50)
+    # class_users = models.ManyToManyField(ClassUser)
+
+    def __str__(self):
+        return self.class_name

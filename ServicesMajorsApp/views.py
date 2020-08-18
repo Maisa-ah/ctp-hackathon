@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+from django.shortcuts import get_object_or_404
 from rest_framework import generics
 from rest_framework import status
 from rest_framework.views import APIView
@@ -19,7 +20,7 @@ class ListServices(APIView):
 class ListServicesByType(APIView):
     def get(self, request, format=None):
         service_type = request.data['service_type']
-        services = models.Service.objects.filter(service_type=service_type]
+        services = models.Service.objects.filter(service_type=service_type)
         serializer = serializers.ServiceSerializer(services, many=True)
         return Response(serializer.data)
 
