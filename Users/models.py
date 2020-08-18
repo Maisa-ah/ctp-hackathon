@@ -14,9 +14,6 @@ class Profile(models.Model):
         (4, "Senior")
     )
 
-    email = models.EmailField(max_length=255, unique=True, null=True)
-    first_name = models.CharField(max_length=255, null=True)
-    last_name = models.CharField(max_length=255, null=True)
     current_year = models.IntegerField(choices=YEAR_CHOICES, default=0)
     date_of_birth = models.DateField(blank=True, null=True)
     bio = models.TextField(null=True)
@@ -33,11 +30,6 @@ class Profile(models.Model):
         return self.user.username
 
 @receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
-    if created:
-        Profile.objects.create(user=instance)
-
-@receiver(post_save, sender=User)
 def update_user_profile(sender, instance, created, **kwargs):
     if created:
-        Profile.objects.create(user=instance)
+        Profile.objects.create(user=instance, school=None, major=None)
