@@ -1,0 +1,12 @@
+@import '../themes.scss';
+.img-container{
+  margin: 2em;
+  display: grid;
+  place-items: center;
+
+  .login-title{
+    padding:1em 0;
+    color: $teal;
+    font-size: 10vw;
+  }
+}

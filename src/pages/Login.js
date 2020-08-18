@@ -1,14 +1,15 @@
 import React from 'react';
-import Field from '../components/Fields';
+import Login from '../components/Login';
+import { useRouter } from '../util/router.js';
 
 function LoginPage() {
-  return (
+  const router = useRouter();
+  return (    
     <div>
-      <Field title="Email" name="Your email"/>
-      <Field title="First Name" name="First Name"/>
-      <Field title="Last Name" name="Last Name"/>
-      <Field title="Interest" name="Interest"/>
+      <Login/>
+
     </div>
+
   );
 }
 

@@ -1,10 +1,25 @@
 @import '../themes.scss';
 
 .field-container{
+  margin: 2em;
+  display:grid;
+  grid-template-rows: 1fr 1fr;
+  place-items: center;
+
   .border{
+    width: clamp(40%, 100%, 100%);
+    height: clamp(40%, 100%, 100%);
+    padding: 1em;
     background: #FFFDFD;
     border: 0.1em solid $teal;
     backdrop-filter: blur(0.4em);
     border-radius: 7em;
+    color: $darkTeal;
+    font-size: 3vw;
   }
+}
+
+::placeholder {
+  color: $darkTeal;
+  opacity: 0.5;
 }
