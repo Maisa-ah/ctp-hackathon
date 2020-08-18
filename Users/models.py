@@ -21,10 +21,10 @@ class Profile(models.Model):
     date_of_birth = models.DateField(blank=True, null=True)
     bio = models.TextField(null=True)
 
-    # Uncomment once School and Major models are created
-    # school = models.ForeignKey('matcher.School', on_delete=models.SET_NULL, null=True)
-    # major = models.ForeignKey('matcher.Major', on_delete=models.SET_NULL, null=True, default=0)
-    # classes = models.ManyToManyField('matcher.Class')
+    school = models.ForeignKey('ServicesMajorsApp.School', on_delete=models.SET_NULL, null=True)
+    major = models.ForeignKey('ServicesMajorsApp.Major', on_delete=models.SET_NULL, null=True, default=0)
+    classes = models.ManyToManyField('ServicesMajorsApp.Class')
+    services = models.ManyToManyField('ServicesMajorsApp.Service')
 
     def __repr__(self):
         return self.user
