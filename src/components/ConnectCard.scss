@@ -1,0 +1,28 @@
+@import '../themes.scss';
+.card-container{
+  margin: 1em;
+  padding:0.5em;
+  box-shadow: 0em 0.1em 0.8em $shadow;
+  border-radius: 0.75em;
+
+  .user-classes{
+    margin-top:3em;
+  }
+  .info-contain{
+    margin: 1em;
+
+    .user-name{
+      font-size: 5vw;
+      font-weight: bold;
+    }
+    .user-school{
+      font-size:3vw;
+    }
+    .user-major{
+      font-size: 3vw;
+    }
+  }
+}
+.card-container:hover, .card-container:focus{
+  background-color: $lightGrey;
+}

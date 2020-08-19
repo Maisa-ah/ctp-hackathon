@@ -15,7 +15,6 @@ function Login() {
       <LoginButton 
       title="Login" 
       buttonOnClick={() => {
-        // Navigate to pricing page
         router.push('/');
       }}
       />
