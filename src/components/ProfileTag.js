@@ -7,7 +7,7 @@ import { ActionVerifiedUser } from 'material-ui/svg-icons';
 const ProfileTag = (props) =>{
   const router = useRouter();
   return(
-    <div className="tag-container">
+    <div className="profile-container">
       <div className="button-padding">
         <BackButton buttonOnClick={() => {
           router.push('/');
@@ -28,11 +28,13 @@ const ProfileTag = (props) =>{
           </div>
         </div>
         <div className="user-info">
-          <div className="user-name">
-            {props.name}
-          </div>
-          <div className="user-school">
-            {props.school} {props.year}
+          <div>
+            <div className="user-name">
+              {props.name}
+            </div>
+            <div className="user-school">
+              {props.school} {props.year}
+            </div>
           </div>
           <div className="user-bio">
             {props.bio}

@@ -16,7 +16,9 @@ const Onboarding = (props) =>{
         {props.description}
       </div>
       <img src={props.image} alt="Image of 2 people connecting"></img>
-      <Button type="primary">Continue</Button>
+      <div className="button-contain">
+        <Button type="primary" onClick={props.buttonOnClick}>Find a Match!</Button>
+      </div>
     </div>
   );
 }

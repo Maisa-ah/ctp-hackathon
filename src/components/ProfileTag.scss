@@ -1,17 +1,20 @@
 @import '../themes.scss';
-.tag-container{
+.profile-container{
   background-color: $lightGrey;
   font-size:3.5vw;
+  display: grid;
+  grid-template-columns: 1fr 10fr;
+  padding-bottom: 1em;
 
   .button-padding{
-    padding: 1em 0em 0em 1em;
+    padding: 0.5em 0em 0em 0.5em;
   }
   .tag-padding{
     display: grid;
     grid-template-columns: 2fr 2fr;
 
     .user-info{
-      padding: 1em;
+      padding: 0.5em 1em 0.5em 0em;
       width: clamp(50%, 100%, 100%);
       text-align: center;
       display: grid;
@@ -24,7 +27,7 @@
 
     }
     .contact-info{
-      padding: 1em;
+      padding: 0.5em;
       width: clamp(50%, 100%, 100%);
       .contact{
         padding: 0.5em;
