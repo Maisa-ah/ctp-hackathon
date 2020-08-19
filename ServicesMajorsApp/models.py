@@ -1,10 +1,6 @@
 from django.db import models
 # import models from user to reference here: from user import models
 
-<<<<<<< HEAD
-=======
-
->>>>>>> f1e3fa4ee279f79306b1d5c3ef728a04f8dc1413
 class Major(models.Model):
     major_code = models.CharField(primary_key=True, max_length=50)
     major_title = models.CharField(max_length=50)
