@@ -1,6 +1,10 @@
 from django.db import models
 # import models from user to reference here: from user import models
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f1e3fa4ee279f79306b1d5c3ef728a04f8dc1413
 class Major(models.Model):
     major_code = models.CharField(primary_key=True, max_length=50)
     major_title = models.CharField(max_length=50)
@@ -25,7 +29,8 @@ class School(models.Model):
 
 
 class Class(models.Model):
-    school = models.ForeignKey(School, on_delete=models.CASCADE)
+    school = models.ForeignKey(
+        School, related_name="school", default="CUNY", on_delete=models.CASCADE)
     class_code = models.CharField(primary_key=True, max_length=8)
     class_name = models.CharField(max_length=50)
     # class_users = models.ManyToManyField(ClassUser)
