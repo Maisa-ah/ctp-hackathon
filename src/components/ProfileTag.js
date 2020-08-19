@@ -2,7 +2,6 @@ import React from 'react';
 import './ProfileTag.scss';
 import { useRouter } from '../util/router.js';
 import BackButton from './BackButton';
-import { ActionVerifiedUser } from 'material-ui/svg-icons';
 
 const ProfileTag = (props) =>{
   const router = useRouter();

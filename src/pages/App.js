@@ -5,6 +5,7 @@ import LoginPage from './Login';
 import Form from '../components/Form';
 import ProfilePage from './Profile';
 import Onboarding from './Onboarding';
+import SplashPage from './Splash';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/form" component={Form}/>
         <Route exact path="/profile" component={ProfilePage} />
+        <Route exact path="/splash" component={SplashPage} />
       </Switch>
     </Router>
   );
