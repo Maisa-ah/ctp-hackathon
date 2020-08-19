@@ -10,9 +10,10 @@ function HomePage() {
   const router = useRouter();
   return (
     <div>
+
       <ConnectCard name="Jane Doe" major="Comp Sci" school="Hunter College" year="2021" 
       cardOnClick={() => {
-        router.push('/login');
+        router.push('/profile');
       }}>
       <TagContainer>
         <ClassTag class="CSCI 335"/>
