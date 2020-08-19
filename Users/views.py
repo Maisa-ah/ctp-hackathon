@@ -1,4 +1,4 @@
-from rest_framework import viewsets, generics, views
+from rest_framework import viewsets, generics, views, status
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
 from django.contrib.auth.models import User
@@ -17,10 +17,24 @@ class ProfileAPI(views.APIView):
         return Response(profile_serializer.data)
 
 class UserProfile(views.APIView):
+    def get_object(self, pk):
+        try:
+            return Profile.objects.get(pk=pk)
+        except Profile.DoesNotExist:
+            raise Http404
+
     def get(self, request, *args, **kwargs):
         user = get_object_or_404(User, pk=request.user.pk)
         profile_serializer = UserSerializer(user.profile)
         return Response(profile_serializer.data)
+    
+    def put(self, request, format=None):
+        profile = self.get_object(self.request.user.profile.pk)
+        serializer = UserSerializer(profile, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class LoginView(generics.RetrieveAPIView):
     serializer_class = LoginSerializer

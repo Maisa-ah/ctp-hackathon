@@ -1,12 +1,30 @@
-.border{
-  // margin: 4vw;
-  background: #FFFDFD;
-  // width: clamp(20%, 50%, 100%);
-  border: 0.2em solid #AED6E2;
-  backdrop-filter: blur(0.4em);
-  border-radius: 7em;
+@import '../themes.scss';
+
+input:focus, textarea:focus, select:focus{
+  outline: none;
+  border-color: $purple;
+  box-shadow: 0 0 0.5em $purple;
+}
+.field-container{
+  margin: 2em;
+  display:grid;
+  grid-template-rows: 1fr 1fr;
+  place-items: center;
+
+  .border{
+    width: clamp(40%, 100%, 100%);
+    height: clamp(40%, 100%, 100%);
+    padding: 1em;
+    background: #FFFDFD;
+    border: 0.1em solid $teal;
+    backdrop-filter: blur(0.4em);
+    border-radius: 7em;
+    color: $darkTeal;
+    font-size: 3vw;
+  }
 }
 
-.margin{
-  margin: 5vw;
+::placeholder {
+  color: $darkTeal;
+  opacity: 0.5;
 }

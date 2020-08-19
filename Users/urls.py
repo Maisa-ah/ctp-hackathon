@@ -8,9 +8,9 @@ router = DefaultRouter()
 router.register('users', UserViewSet, basename='user')
 
 urlpatterns = [
-    path('', include('rest_auth.urls')),
     path('', include(router.urls)),
+    path('', include('rest_auth.urls')),
     path('registration/', include('rest_auth.registration.urls')),
-    path('user/<user_id>/profile/', ProfileAPI.as_view()),
     path('profile/', UserProfile.as_view()),
+    path('profile/<int:user_id>/', ProfileAPI.as_view()),
 ]
