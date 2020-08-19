@@ -13,7 +13,7 @@ function SplashPage() {
         router.push('/login');
       }}
       signUpOnClick={() => {
-        router.push('/');
+        router.push('/signup');
       }}/>
 
     </div>

@@ -4,8 +4,13 @@ import './Titling.scss';
 
 const Titling = (props) =>{
   return(
-  <div className="profile-title">
-    {props.title}
+  <div>
+    <div className="profile-title">
+      {props.title}
+    </div>
+      <div className="home-title">
+      {props.title2}
+    </div>
   </div>
   );
 }
