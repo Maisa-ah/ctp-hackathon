@@ -1,15 +1,15 @@
 import React from 'react';
 import './ProfileTag.scss';
-import { useRouter } from '../util/router.js';
 import BackButton from './BackButton';
+import { useHistory } from 'react-router-dom';
 
 const ProfileTag = (props) =>{
-  const router = useRouter();
+  const history = useHistory();
   return(
     <div className="profile-container">
       <div className="button-padding">
         <BackButton buttonOnClick={() => {
-          router.push('/');
+          history.goBack();
         }}/>
       </div>
       <div className="tag-padding">
