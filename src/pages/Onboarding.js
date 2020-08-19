@@ -12,6 +12,9 @@ function LoginPage() {
       message="Find students who share your situation."
       description="Get matched with students in your classes or connect with someone who might hold some insight."
       image={connect}
+      buttonOnClick={() => {
+        router.push('/');
+      }}
 
       />
     </div>

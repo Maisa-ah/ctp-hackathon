@@ -1,0 +1,8 @@
+.short-contain{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 0.5em;
+  column-gap: 0.5em;
+  padding: 1em;
+}
