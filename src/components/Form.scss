@@ -19,6 +19,11 @@
     font-size: 3vw;
   }
 }
+.form-contain{
+  .button-container{
+    padding-top: 2em;
+  }
+}
 
 ::placeholder {
   color: $darkTeal;

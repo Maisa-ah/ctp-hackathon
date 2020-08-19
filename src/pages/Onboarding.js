@@ -13,7 +13,7 @@ function LoginPage() {
       description="Get matched with students in your classes or connect with someone who might hold some insight."
       image={connect}
       buttonOnClick={() => {
-        router.push('/');
+        router.push('/form');
       }}
 
       />
