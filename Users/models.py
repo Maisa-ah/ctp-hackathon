@@ -23,11 +23,6 @@ class Profile(models.Model):
     classes = models.ManyToManyField('ServicesMajorsApp.Class')
     services = models.ManyToManyField('ServicesMajorsApp.Service')
 
-    def __repr__(self):
-        return self.user
-
-    def __str__(self):
-        return self.user.username
 
 @receiver(post_save, sender=User)
 def update_user_profile(sender, instance, created, **kwargs):

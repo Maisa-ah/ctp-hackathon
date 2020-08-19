@@ -10,7 +10,8 @@ class Major(models.Model):
 
 
 class Service(models.Model):
-    service_type = models.CharField(max_length=50, primary_key=True)
+    service_code = models.CharField(max_length=16, primary_key=True)
+    service_type = models.CharField(max_length=50)
 
     def __str__(self):
         return self.service_type
@@ -26,10 +27,9 @@ class School(models.Model):
 
 class Class(models.Model):
     school = models.ForeignKey(
-        School, related_name="school", default="CUNY", on_delete=models.CASCADE)
+        School, related_name="school", default=None, null=True, on_delete=models.CASCADE)
     class_code = models.CharField(primary_key=True, max_length=8)
     class_name = models.CharField(max_length=50)
-    # class_users = models.ManyToManyField(ClassUser)
 
     def __str__(self):
         return self.class_name
