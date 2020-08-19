@@ -18,21 +18,23 @@ const ProfileTag = (props) =>{
           <div className="profile-pic">
             <img src={props.image}></img>
           </div>
-          <div className="phone">
-            {props.phone}
-          </div>
-          <div>
-            {props.email}
+          <div className="contact">
+            <div className="phone">
+              {props.phone}
+            </div>
+            <div>
+              {props.email}
+            </div>
           </div>
         </div>
         <div className="user-info">
-          <div>
+          <div className="user-name">
             {props.name}
           </div>
-          <div>
+          <div className="user-school">
             {props.school} {props.year}
           </div>
-          <div>
+          <div className="user-bio">
             {props.bio}
           </div>
         </div>
