@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-
+import './Form.scss';
 
 
 function Form() {
@@ -35,10 +35,10 @@ function Form() {
             </div>
             <div className="field-container">
             <select className="border" name= "year" ref={register({required: true})}>
-                <option value="freshman">Freshman</option>
-                <option value="sophmore">Sophmore</option>
-                <option selected value="junior">Junior</option>
-                <option value="senior">Senior</option>
+                <option value='1'>Freshman</option>
+                <option value='2'>Sophmore</option>
+                <option selected value='3'>Junior</option>
+                <option value="4">Senior</option>
             </select>
             </div>
             <div className="field-container">
