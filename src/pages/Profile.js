@@ -3,6 +3,7 @@ import ProfileTag from '../components/ProfileTag.js';
 import profilePic from '../components/sampleProfile.svg';
 import TagContainer from '../components/TagContainer';
 import ClassTag from '../components/ClassTag';
+import ServiceTag from '../components/ServiceTag';
 
 function ProfilePage() {
   return (
@@ -25,6 +26,15 @@ function ProfilePage() {
         <ClassTag class="CSCI 135"/>
         <ClassTag class="CSCI 260"/>
         <ClassTag class="CSCI 499"/>
+      </TagContainer>
+
+      <TagContainer>
+        <ServiceTag service="Major Advice"/>
+        <ServiceTag service="Class Advice"/>
+        <ServiceTag service="Friendly Chat"/>
+        <ServiceTag service="Activities"/>
+        <ServiceTag service="Career Advice"/>
+        <ServiceTag service="Collaborate"/>
       </TagContainer>
       
     </div>
