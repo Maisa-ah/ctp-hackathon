@@ -1,15 +1,10 @@
 
 @import '../themes.scss';
 
-input:focus, textarea:focus, select:focus{
-  outline: none;
-  border-color: $purple;
-  box-shadow: 0 0 0.5em $purple;
-}
 .field-container{
   margin: 2em;
   display:grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 0fr 0fr;
   place-items: center;
 
   .border{
@@ -22,9 +17,6 @@ input:focus, textarea:focus, select:focus{
     border-radius: 7em;
     color: $darkTeal;
     font-size: 3vw;
-    padding: 1rem;
-
-
   }
 }
 
