@@ -1,0 +1,14 @@
+@import '../themes.scss';
+.button-contain{
+  .icon-contain{
+    width: clamp(10%, 50%, 100%);
+  }
+  .ant-btn-primary, .ant-btn-primary:focus {
+    background-color: $silver;
+    border: none;
+  }
+ .ant-btn-primary:active, .ant-btn-primary:hover {
+    background-color: $medGrey;
+    border: none;
+  } 
+}

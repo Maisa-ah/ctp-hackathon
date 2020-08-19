@@ -1,0 +1,28 @@
+@import '../themes.scss';
+.tag-container{
+  background-color: $lightGrey;
+
+  .button-padding{
+    padding: 1em;
+  }
+  .tag-padding{
+    // padding: 1em;
+
+    .user-info{
+      padding: 1em;
+      position: absolute;
+      text-align: right;
+      width: clamp(50%, 100%, 100%);
+
+    }
+    .contact-info{
+      padding: 1em;
+      width: clamp(50%, 100%, 100%);
+    }
+
+    .profile-pic{
+      padding: 0.5em;
+      width: clamp(10%, 30%, 50%);
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@import '../themes.scss';
+.onboarding-contain{
+  padding: 2em;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  grid-template-rows: repeat(3, 1fr);
+
+  .title{
+    font-size: 6vw;
+    font-weight: bold;
+  }
+  .message{
+    font-size:4vw;
+    font-style: italic;
+  }
+  .description{
+    font-size:4vw;
+    font-style: italic;
+    padding-bottom: 1.5em;
+  }
+}

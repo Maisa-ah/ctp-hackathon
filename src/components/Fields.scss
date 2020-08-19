@@ -1,6 +1,11 @@
 
 @import '../themes.scss';
 
+input:focus, textarea:focus, select:focus{
+  outline: none;
+  border-color: $purple;
+  box-shadow: 0 0 0.5em $purple;
+}
 .field-container{
   margin: 2em;
   display:grid;
