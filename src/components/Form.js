@@ -4,23 +4,18 @@ import './Form.scss';
 import {Button} from 'antd';
 import 'antd/dist/antd.css';
 import { useRouter } from '../util/router.js';
-import { useHistory } from 'react-router-dom';
 
 function Form() {
-  const history = useHistory();
-  const {register, handleSubmit} = useForm();
+  const {register, handleSubmit, errors} = useForm();
 
   const onSubmit = (data) => {
     console.log(data);
-  }
-  const ButtonOnClick = () => {
-    history.push('/');
+    router.push('/3000');
   }
 
   const router = useRouter();
   return (
-    
-    <form onSubmit={handleSubmit(onSubmit)} className="form-contain">
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className="field-container">
         <input className="border" type="text" placeholder="First Name" name="firstname" ref={register({required: true})}/>
       </div>
@@ -58,10 +53,10 @@ function Form() {
       <div className="field-container">
         <input className="border" type="text" placeholder="Can Help With (Optional):" name="help" ref={register}/>
       </div>
-
       <div className="button-container">
-        <Button onClick={ButtonOnClick}type="primary">Submit</Button>
+        <Button type="primary">Connect</Button>
       </div>
+      
     </form>
   );
 }
