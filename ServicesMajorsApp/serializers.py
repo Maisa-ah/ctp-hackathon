@@ -1,6 +1,8 @@
 from rest_framework import serializers
 
 from . import models
+from Users.models import Profile
+from Users.serializers import UserSerializer
 
 
 class ClassSerializer(serializers.ModelSerializer):
@@ -25,3 +27,7 @@ class ServiceSerializer(serializers.ModelSerializer):
     class Meta:
         fields = ('service_type',)
         model = models.Service
+
+class MatchSerializer(serializers.Serializer):
+    score = serializers.IntegerField()
+    user = UserSerializer()

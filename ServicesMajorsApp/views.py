@@ -7,7 +7,9 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 from .models import Service, School, Major, Class
-from .serializers import ServiceSerializer, MajorSerializer, SchoolSerializer, ClassSerializer
+from .serializers import ServiceSerializer, MajorSerializer, SchoolSerializer, ClassSerializer, MatchSerializer
+
+from .utils import mapper
 
 
 class ListServices(APIView):
@@ -16,18 +18,18 @@ class ListServices(APIView):
         serializer = ServiceSerializer(services, many=True)
         return Response(serializer.data)
 
-
 class DetailService(APIView):
-    def get_object(self, service_type):
+    def get_object(self, service_code):
         try:
-            return Service.objects.get(service_type=service_type)
+            return Service.objects.get(service_code=service_code)
         except Service.DoesNotExist:
             raise Http404
 
-    def get(self, request, service_type, format=None):
-        service = self.get_object(service_type)
+    def get(self, request, service_code, format=None):
+        service = self.get_object(service_code)
         serializer = ServiceSerializer(service)
         return Response(serializer.data)
+
 
 
 class ListMajors(APIView):
@@ -36,21 +38,7 @@ class ListMajors(APIView):
         serializer = MajorSerializer(majors, many=True)
         return Response(serializer.data)
 
-
 class DetailMajor(APIView):
-    def get_object(self, major_code):
-        try:
-            return Major.objects.get(major=major_code)
-        except Service.DoesNotExist:
-            raise Http404
-
-    def get(self, request, major_code, format=None):
-        major = self.get_object(major_code)
-        serializer = MajorSerializer(major)
-        return Response(serializer.data)
-
-
-class MajorDetail(APIView):
     def get_object(self, major_code):
         return get_object_or_404(Major, major_code=major_code)
 
@@ -73,73 +61,42 @@ class MajorDetail(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-class GetMajorbyMajorCode(APIView):
-    def get(self, request, format=None):
-        major_code = request.data['major_code']
-        major = get_object_or_404(Major, major_code=major_code)
-        serializer = serializers.MajorSerializer(major, many=False)
-        return Response(serializer.data)
-
-
 class ListClasses(APIView):
     def get(self, request, format=None):
-        classes = Class.objects.all()
+        query_param = self.request.query_params.get('school', None)
+        if query_param:
+            schools = Class.objects.filter(school=query_param)
+        else:
+            classes = Class.objects.all()
         serializer = ClassSerializer(classes, many=True)
         return Response(serializer.data)
 
-
-class ListClassesBySchool(APIView):
-    def get(self, request, format=None):
-        school = request.data['school']
-        classes = models.Class.objects.filter(school=school)
-        serializer = serializers.ClassSerializer(classes)
-
-
-# class ClassDetail(APIView):
-#     def get_object(self, class_code):
-#         return get_object_or_404(Class, class_code=major_code)
-
-#     def get(self, request, class_code, format=None):
-#         this_class = self.get_object(major_code)
-#         serializer = serializers.ClassSerializer(this_class)
-#         return Response(serializer.data)
-
-#     def put(self, request, class_code, format=None):
-#         this_class = self.get_object(class_code)
-#         serializer = serializers.ClassSerializer(this_class, data=request.data)
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response(serializer.data)
-#         return Response(serialzer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-#     def delete(self, request, class_code, format=None):
-#         this_class = self.get_object(class_code)
-#         this_class.delete()
-#         return Response(status=status.HTTP_204_NO_CONTENT)
-
 class DetailClass(APIView):
     def get_object(self, class_code):
-        try:
-            return Class.objects.get(class_code=class_code)
-        except Service.DoesNotExist:
-            raise Http404
+        return get_object_or_404(Class, class_code=major_code)
 
     def get(self, request, class_code, format=None):
-        _class = self.get_object(class_code)
-        serializer = MajorSerializer(_class)
+        this_class = self.get_object(major_code)
+        serializer = serializers.ClassSerializer(this_class)
         return Response(serializer.data)
 
+    def put(self, request, class_code, format=None):
+        this_class = self.get_object(class_code)
+        serializer = serializers.ClassSerializer(this_class, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serialzer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# class ListClassesBySchool(APIView):
-#     def get(self, request, format=None):
-#         school = request.data['school']
-#         classes = Class.objects.filter(school=school)
-#         serializer = ClassSerializer(classes, many=True)
+    def delete(self, request, class_code, format=None):
+        this_class = self.get_object(class_code)
+        this_class.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class ListSchools(APIView):
     def get(self, request, format=None):
-        schools = School.objects.all()
+        schools = School.objects.all() 
         serializer = SchoolSerializer(schools, many=True)
         return Response(serializer.data)
 
@@ -155,3 +112,63 @@ class DetailSchool(APIView):
         school = self.get_object(school_code)
         serializer = SchoolSerializer(school)
         return Response(serializer.data)
+
+
+# Incredibly fucking ugly logic
+
+class Matcher(APIView):
+    def get(self, request, format=None):
+        """
+        Sample data form:
+
+        { 'data': {
+            'service': 'Career',
+            'school_only': False,
+            'user': {
+                'school': 'Baruch',
+                'classes': ['CIS2300', 'CIS3400'],
+                'major': 'CIS'
+                }
+            }
+        }
+
+        """
+
+        from Users.models import Profile
+
+        # This should come from the frontend 
+        data = {
+            'service': 'Career',
+            'school_only': False,
+            'user': {
+                'id': 1,
+                'school': 'Baruch',
+                'classes': ['CIS2300', 'CIS3400'],
+                'major': 'CIS'
+                }
+            }
+        
+        service = data['service']
+        school_only = data['school_only']
+        user = data['user']
+
+
+        # Query for users depending on user's preference
+        if school_only:            
+            users = Profile.objects.filter(school__school_code=user.school).exclude(user=user['id']).filter(services=service)
+        else:
+            users = Profile.objects.exclude(user=user['id']).filter(services=service)
+        
+        # Iterate over users and calculate the "matching" score
+        matches = []
+        for u in users.iterator():
+            matches.append(mapper(service, user, u))
+
+        if not matches:
+            return Response({})
+
+        serializer = MatchSerializer(matches, many=True)
+
+        return Response(serializer.data)
+
+
