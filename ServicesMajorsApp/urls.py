@@ -12,4 +12,6 @@ urlpatterns = [
     path('classes/<str:school>', views.ListClassesBySchool.as_view(),
          name='classes_by_school_list'),
     path('schools/', views.ListSchools.as_view(), name='schools_list'),
+    path('majors/<str:major_code>', views.GetMajorbyMajorCode.as_view(),
+         name='major_by_major_code')
 ]
