@@ -130,13 +130,6 @@ class DetailClass(APIView):
         return Response(serializer.data)
 
 
-# class ListClassesBySchool(APIView):
-#     def get(self, request, format=None):
-#         school = request.data['school']
-#         classes = Class.objects.filter(school=school)
-#         serializer = ClassSerializer(classes, many=True)
-
-
 class ListSchools(APIView):
     def get(self, request, format=None):
         schools = School.objects.all()
