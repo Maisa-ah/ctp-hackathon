@@ -15,14 +15,14 @@ const Splash = (props) =>{
       <img src={props.image}></img>
     </div>
     <div className="sign-up">
-      <Button type="primary">Sign Up</Button>
+      <Button type="primary" onClick={props.signUpOnClick}>
+        {props.signup}
+      </Button>
     </div>
     <div className="login">
-      <Button type="primary"
-      buttonOnClick={() => {
-        router.push('/login');
-      }}
-      >Login</Button>
+      <Button type="primary" onClick={props.loginOnClick}>
+        {props.login}
+      </Button>
     </div>
 
 

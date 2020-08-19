@@ -8,7 +8,13 @@ function SplashPage() {
   const router = useRouter();
   return (    
     <div>
-      <Splash image={splash} image2={logo}/>
+      <Splash image={splash} image2={logo} signup="Sign Up" login="Login"
+      loginOnClick ={() => {
+        router.push('/login');
+      }}
+      signUpOnClick={() => {
+        router.push('/');
+      }}/>
 
     </div>
 
