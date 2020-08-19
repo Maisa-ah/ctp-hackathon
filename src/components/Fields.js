@@ -8,7 +8,7 @@ class Field extends React.Component {
       name: '',
     };
   }
-
+  
   onChange = (field) => {
     const value = field.target.value;
     this.setState({
