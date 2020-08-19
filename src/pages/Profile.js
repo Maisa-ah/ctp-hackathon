@@ -1,38 +1,16 @@
 import React from 'react';
+import Profile from '../components/Profile';
+import { useRouter } from '../util/router.js';
 
+function ProfilePage() {
+  const router = useRouter();
+  return (    
+    <div>
+      <Profile/>
 
-class ProfilePage extends React.Component{
-    state = {
-        firstName: "",
-        LastName: "",
-        School: "",
-        Major: "",
-        Year:"",
-        ClassesTaken:[],
+    </div>
 
-    };
-
-    change = (e)=>{
-        this.setState({
-            [e.target.name]: e.target.value});
-    
-    };
-
-    render(){
-        return(
-            <form>
-                <input 
-                name= "firstName"
-                type="text" 
-                placeholder='First Name' 
-                value={this.state.firstName} 
-                onChange={e => this.change(e)}
-                />
-            </form>
-        )
-    }
-
+  );
 }
 
 export default ProfilePage;
-

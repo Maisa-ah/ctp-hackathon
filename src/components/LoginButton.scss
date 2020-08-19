@@ -1,0 +1,18 @@
+@import '../themes.scss';
+.button-container{
+  display: grid;
+  place-items: center;
+
+  .ant-btn-primary, .ant-btn-primary:focus {
+    background-color: $login;
+    border: none;
+    width: clamp(50%, 60%, 90%);
+    height: clamp(50%, 100%, 100%);
+    padding: 0.75em;
+    box-shadow: 0px 0.1em 0.5em $shadow;
+    border-radius: 1em;  
+    font-size: 4vw;
+    font-weight: bolder;
+  }
+
+}

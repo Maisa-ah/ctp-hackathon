@@ -1,7 +1,8 @@
 import React from 'react';
-import './Fields.scss';
+import './UserData.scss';
 
-class Field extends React.Component {
+
+class UserData extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,4 +26,5 @@ class Field extends React.Component {
   }
 }
 
-export default Field;
+
+export default UserData;

@@ -3,18 +3,3 @@ div{
     padding: 0;
     text-align: center;
 }
-
-textarea{
-    border: 0.2em  solid #AED6E2;
-}
-
-button{
-    width: 275px;
-    height: 54px;
-    left: 42px;
-    top: 730px;
-    background: #71C3E6;
-    /* Shadow */
-    box-shadow: 0px 1px 8px rgba(134, 149, 203, 0.5);
-    border-radius: 13px;
-}

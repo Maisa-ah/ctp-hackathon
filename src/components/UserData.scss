@@ -4,7 +4,7 @@
 .field-container{
   margin: 2em;
   display:grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 0fr 0fr;
   place-items: center;
 
   .border{
@@ -17,8 +17,6 @@
     border-radius: 7em;
     color: $darkTeal;
     font-size: 3vw;
-    padding: 1rem;
-
   }
 }
 
