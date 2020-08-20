@@ -10,8 +10,8 @@ function Login() {
   return (    
     <div className="page-container">
       <ImageField image={login} description="Welcome Back!"/>
-      <Field name="Your email"/>
-      <Field name="Password"/>
+      <Field type ="text" name="Your email"/>
+      <Field type="password" name="Password"/>
       <LoginButton 
       title="Login" 
       buttonOnClick={() => {

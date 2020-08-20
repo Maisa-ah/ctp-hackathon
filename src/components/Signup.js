@@ -29,7 +29,7 @@ function SignupPage(){
           <input className="border" type="email" placeholder="Your Email" name="email" ref={register({required: true})}/>
         </div>
         <div className="field-container">
-          <input className="border" type="text" placeholder="Password" name="password" ref={register({required: true, minlength: 6})}/>
+          <input className="border" type="password" placeholder="Password" name="password" ref={register({required: true, minlength: 6})}/>
         </div>
         <div className="terms">
           <input type="checkbox" name="terms" className="checkbox"/>

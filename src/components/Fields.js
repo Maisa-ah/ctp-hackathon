@@ -19,7 +19,7 @@ class Field extends React.Component {
   render() {
     return (
       <form className="field-container">
-          <input className="border" type="text" placeholder={this.props.name} value={this.state.name} onChange={this.onChange}/>
+          <input className="border" type={this.props.type} placeholder={this.props.name} value={this.state.name} onChange={this.onChange}/>
       </form>
     );
   }
