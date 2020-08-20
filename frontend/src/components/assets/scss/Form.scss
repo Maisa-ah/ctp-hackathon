@@ -1,13 +1,12 @@
-
 @import '../themes.scss';
 
-.field-container{
+.field-container {
   margin: 2em;
-  display:grid;
+  display: grid;
   grid-template-rows: 0fr 0fr;
   place-items: center;
 
-  .border{
+  .border {
     width: clamp(40%, 100%, 100%);
     height: clamp(40%, 100%, 100%);
     padding: 1em;
@@ -19,8 +18,9 @@
     font-size: 3vw;
   }
 }
-.form-contain{
-  .button-container{
+
+.form-contain {
+  .button-container {
     padding-top: 2em;
   }
 }

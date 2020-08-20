@@ -1,68 +1,53 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# CollabU
 
-In the project directory, you can run:
+CollabU is a web application designed specifically for mobile devices. It is a valuable resourse for students who are willing to reach out to their peers, build their network or ask for advice with no access to their campus! (which is especially useful during the transition to online distance learning)
 
-### `yarn start`
+CollabU's target audience is currently enrolled students, but is not limited to only enrolled ones! Alumnis and high school folks who are considering different university/college options will also find it helpful!
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+CollabU relies on the matching algorithm which will take user's information (student's school, major and currently enrolled classes), ask for a desired service (Careed Advice, Major Advice, Classes Advice, Club/Activities, Friendly Chat, Collaboration) and will match the user with people who fit the provided criteria the most.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `yarn test`
+### Tech
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+CollabU uses a number of open source projects to work operate:
 
-### `yarn build`
+* [Django](https://www.djangoproject.com/) - a high-level Python Web framework that encourages rapid development and clean, pragmatic design.
+CollabU uses Django and its [Django-REST-Framework](https://www.django-rest-framework.org/) to handle backend logic, provide an API and manage the [PostgreSQL](https://www.postgresql.org/) database
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+* [ReactJS](https://reactjs.org/) - a declarative, efficient, and flexible JavaScript library for building user interfaces.
+CollabU uses ReactJS as its main frontend tool to deliver the smooth and enjoyable user experience. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Installation
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+CollabU requires [Python 3.6](https://www.python.org/) or above and [yarn](https://yarnpkg.com/) package manager to be installed on the local machine.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Make sure you have Python 3.6 or above installed on your local machine.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Clone/Download this repository and name the folder as you wish
+2. Navigate to <folder_name>/backend
+3. Create a virtual environment `python -m venv venv`
+4. Navigate to your environment and activate it
+5. Install the requirements `pip install -r requirements.txt`
+6. Create a database `python manage.py migrate`
+7. Create a superuser `python manage.py createsuperuser`
+8. Run the server `python manage.py runserver`
+9. Navigate to <folder_name>/frontend
+10. Install the project's dependencies `yarn install`
+1Run the React script `yarn start` 
 
-## Learn More
+Does it work? No? Perfect. It shouldn't.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
 ### Deployment
+Backend endpoints can be accessed at [https://crested-talon-233500.uc.r.appspot.com/](https://crested-talon-233500.uc.r.appspot.com/)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Todos
+ - Clean this mess
+ - Integrate frontend with backend
+ - Think again about the structure
+ - Refactor, refactor, refactor
