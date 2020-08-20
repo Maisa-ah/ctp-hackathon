@@ -1,20 +1,22 @@
 @import '../themes.scss';
-body{
-    margin-top: 3em;
-    text-align: center;
-    color: #21A3BF;
+.page-container{
+  margin-top: 3em;
+  text-align: center;
+  color: #21A3BF;
+}
+.subtitle{
+  font-size: 4vw;
 }
 .heading{
-    color: $teal;
-    font-size: 10vw;
+  color: $teal;
+  font-size: 10vw;
 }
 .terms{
-    padding-bottom: 2em;
-    font-size: .5rem;
-
+  padding-bottom: 2em;
+  font-size: 3vw;
 }
 
 .checkbox{
-    position:relative; 
-    top: .12rem
+  position:relative; 
+  top: 0.2em;
 }
