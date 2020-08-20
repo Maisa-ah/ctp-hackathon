@@ -1,0 +1,43 @@
+@import '../themes.scss';
+.profile-container{
+  background-color: $lightGrey;
+  font-size:3.5vw;
+  display: grid;
+  grid-template-columns: 1fr 10fr;
+  padding-bottom: 1em;
+
+  .button-padding{
+    padding: 0.5em 0em 0em 0.5em;
+  }
+  .tag-padding{
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+
+    .user-info{
+      padding: 0.5em 1em 0.5em 0em;
+      width: clamp(50%, 100%, 100%);
+      text-align: center;
+      display: grid;
+      place-items: center;
+
+      .user-name{
+        font-size:8vw;
+        font-weight: bold;
+      }
+
+    }
+    .contact-info{
+      padding: 0.5em;
+      width: clamp(50%, 100%, 100%);
+      .contact{
+        padding: 0.5em;
+      }
+      .profile-pic{
+        padding: 0.5em;
+        width: clamp(10%, 70%, 80%);
+        border-radius: 50%;
+      }
+    }
+
+  }
+}
