@@ -14,7 +14,7 @@ function Form() {
     console.log(data);
   }
   const ButtonOnClick = () => {
-    history.push('/');
+    history.push('/home');
   }
 
   const router = useRouter();

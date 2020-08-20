@@ -15,7 +15,7 @@ function Login() {
       <LoginButton 
       title="Login" 
       buttonOnClick={() => {
-        router.push('/');
+        router.push('/home');
       }}
       />
 
